@@ -1,0 +1,168 @@
+@import "../../../Styles/mixins";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.productImg {
+  border-radius: 4px;
+  background: #F5F5F5;
+  width: 100%;
+  height: 250px;
+  @include center-x-y;
+  position: relative;
+}
+
+.productImg>img {
+  width: 172px;
+  height: 152px;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+.layerContent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.layerContent .discount {
+  background: var(--tomato);
+  color: var(--secondary-white);
+  width: fit-content;
+  padding: 4px 12px;
+  @include center-x-y;
+  gap: 10px;
+  border-radius: 4px;
+  user-select: none;
+  font: 400 .75rem "Poppins";
+}
+
+.layerContent .discount.hide {
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.layerContent .icons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform .4s .1s;
+  transform: translateX(50px);
+}
+
+.card:hover .icons {
+  transform: translateX(0);
+}
+
+.layerContent .icons .iconHolder {
+  width: 34px;
+  height: 34px;
+  background: var(--white);
+  color: var(--black);
+  border-radius: 50%;
+  @include center-x-y;
+  cursor: pointer;
+}
+
+.layerContent .icons .iconHolder i {
+  font-size: .9rem;
+  transition: color .2s;
+}
+
+.layerContent .icons .iconHolder:first-child:hover i {
+  color: var(--tomato);
+}
+
+.layerContent .icons .iconHolder:last-child:hover i {
+  color: var(--turquoise);
+}
+
+.layerContent .addToCartBtn {
+  border: none;
+  outline: none;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-radius: 0 0 4px 4px;
+  background: var(--black);
+  color: var(--white);
+  font: 500 1rem "Poppins";
+  width: 100%;
+  height: 40px;
+  cursor: pointer;
+  transition: background .2s, transform .4s .1s;
+  transform: translateY(50px);
+
+  &:hover {
+    background: var(--turquoise);
+  }
+}
+
+.card:hover .addToCartBtn {
+  transform: translateY(0);
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.productInfo .productName a {
+  font: 500 1rem "Poppins";
+  color: var(--black);
+  transition: color .2s;
+
+  &:hover {
+    color: var(--brown);
+  }
+}
+
+.productInfo .price {
+  color: var(--tomato);
+  font: 500 1rem/24px "Poppins";
+}
+
+.productInfo .price .afterDiscount {
+  margin-left: 16px;
+  color: var(--black);
+  font: 500 1rem/24px "Poppins";
+  opacity: .5;
+}
+
+.productInfo .rateContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.productInfo .rateContainer .stars {
+  display: flex;
+  align-items: center;
+}
+
+.productInfo .rateContainer .stars img {
+  width: 20px;
+  height: 20px;
+}
+
+.productInfo .rateContainer .numOfVotes {
+  font: 600 .875rem/21px "Poppins";
+  color: var(--black);
+  opacity: .5;
+}

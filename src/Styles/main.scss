@@ -1,0 +1,77 @@
+@import "./colors.scss";
+@import "./mixins.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  width: var(--container-width);
+  margin: 0 auto;
+}
+
+@include medium {
+  .container {
+    width: var(--container-mobile-width);
+  }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+input,
+button {
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+i {
+  user-select: none;
+  cursor: pointer;
+}
+
+svg {
+  display: flex;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.skip-content {
+  position: absolute;
+  left: 0;
+  top: -100px;
+  color: var(--white);
+  background-color: var(--turquoise);
+  padding: 10px;
+  outline: none;
+
+  &:focus {
+    top: 0;
+  }
+}
